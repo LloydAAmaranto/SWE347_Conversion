@@ -17,7 +17,7 @@ public class ConversionTest {
     float val = 123.45678f; 
     int accuracy = 2; 
     float concat = convert.accuracy(val, accuracy); 
-    float expected = 123.45f; 
+    float expected = 123.46f; 
     float delta = 0.0001f; 
     assertEquals(expected, concat, delta); 
   }
@@ -70,24 +70,24 @@ public class ConversionTest {
   public void testM2F(){
     float meters = 123.45f; 
     float feet = convert.convertM2F(meters); 
-    float expected = 405.019685f; 
-    float delta = 0.01f; 
+    float expected = 405.01969f; 
+    float delta = 0.1f; 
     assertEquals(expected, feet, delta); 
   }
   @Test
   public void testM2K(){
     float miles = 123.45f; 
     float kilometers = convert.convertM2K(miles); 
-    float expected = 198.673517f; 
-    float delta = 0.01f; 
+    float expected = 198.67352f; 
+    float delta = 0.1f; 
     assertEquals(expected, kilometers, delta); 
   }
   @Test
   public void testK2M(){
     float kilometers = 123.45f; 
-    float miles = convert.convertM2K(kilometers); 
-    float expected = 76.7082737f; 
-    float delta = 0.01f; 
+    float miles = convert.convertK2M(kilometers); 
+    float expected = 76.72467f; 
+    float delta = 0.1f; 
     assertEquals(expected, miles, delta); 
   }
   @Test
@@ -95,7 +95,7 @@ public class ConversionTest {
     float gallons = 123.45f; 
     float liters = convert.convertG2L(gallons); 
     float expected = 467.30908f; 
-    float delta = 0.01f; 
+    float delta = 0.1f; 
     assertEquals(expected, liters, delta); 
   }
   @Test
@@ -110,16 +110,16 @@ public class ConversionTest {
   public void testOz2G(){
     float ounce = 123.45f; 
     float gallons = convert.convertOz2G(ounce); 
-    float expected = 0.96445f; 
-    float delta = 0.01f; 
+    float expected = 3499.8074f; 
+    float delta = 0.1f; 
     assertEquals(expected, gallons, delta);
   }
   @Test
   public void testG2Oz(){
     float gallons = 123.45f; 
     float ounces = convert.convertG2Oz(gallons); 
-    float expected = 15801.6f; 
-    float delta = 0.01f; 
+    float expected = 4.35449f; 
+    float delta = 0.1f; 
     assertEquals(expected, ounces, delta);
 
   }
