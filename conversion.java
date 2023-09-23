@@ -423,97 +423,119 @@ public float accuracy(float val, int accuracy){
    return num1; 
 }
 
-public static void main(String[] args){
-   
-   //Create an instance so that we can access the conversion methods
-   conversion instance = new conversion(); 
+
+public void menu(){
+   System.out.println("\n---------------------------MENU---------------------------");
+   System.out.println("Enter 1 to convert Fahrenheit to Celsius");
+   System.out.println("Enter 2 to convert Celsius to Fahrenheit");
+   System.out.println("Enter 3 to convert inches to centimeters");
+   System.out.println("Enter 4 to convert centimeters to inches");
+   System.out.println("Enter 5 to convert feet to meters");
+   System.out.println("Enter 6 to convert meters to feet");
+   System.out.println("Enter 7 to convert miles to kilometers");
+   System.out.println("Enter 8 to convert kilometers to miles");
+   System.out.println("Enter 9 to convert gallons to liters");
+   System.out.println("Enter 10 to convert liters to gallons");
+   System.out.println("Enter 11 to convert ounces to grams");
+   System.out.println("Enter 12 to convert grams to ounces");
+   System.out.println("Enter 13 to convert pounds to kilograms");
+   System.out.println("Enter 14 to convert kilograms to pounds");
+   System.out.println("Enter 15 to convert hours to seconds");
+   System.out.println("Enter 16 to convert seconds to hours");
+   System.out.println("Enter 0 to exit");
+   System.out.println("----------------------------------------------------------\n");
+}
+
+// retrieves the user's choice from 0 to 16 
+public int getChoice(){
    Scanner scanner = new Scanner(System.in); 
-
-   //Runs infinitely until user types "0" to stop
-   while (true) {
-      //Prints out the option that user has
-      System.out.println("\n---------------------------MENU---------------------------");
-      System.out.println("Enter 1 to convert Fahrenheit to Celsius");
-      System.out.println("Enter 2 to convert Celsius to Fahrenheit");
-      System.out.println("Enter 3 to convert inches to centimeters");
-      System.out.println("Enter 4 to convert centimeters to inches");
-      System.out.println("Enter 5 to convert feet to meters");
-      System.out.println("Enter 6 to convert meters to feet");
-      System.out.println("Enter 7 to convert miles to kilometers");
-      System.out.println("Enter 8 to convert kilometers to miles");
-      System.out.println("Enter 9 to convert gallons to liters");
-      System.out.println("Enter 10 to convert liters to gallons");
-      System.out.println("Enter 11 to convert ounces to grams");
-      System.out.println("Enter 12 to convert grams to ounces");
-      System.out.println("Enter 13 to convert pounds to kilograms");
-      System.out.println("Enter 14 to convert kilograms to pounds");
-      System.out.println("Enter 15 to convert hours to seconds");
-      System.out.println("Enter 16 to convert seconds to hours");
-      System.out.println("Enter 0 to exit");
-      System.out.println("----------------------------------------------------------\n");
-
-      //User input their choice by entering a value
-      int choice = scanner.nextInt(); 
-      float input = 0;
-      int num = 0;
-      while(choice < 0 || choice > 16){
-         System.out.println("\nInvalid input. Please try again.");
-         choice = scanner.nextInt(); 
-      }
-      //If the chocice isn't to exit, it will ask the user for an input
-      if (choice != 0) {
-         System.out.println("Enter in the value to convert");
-         input = scanner.nextFloat();
-         System.out.println("Enter in digits after the decimal point (0-4)");
-         num = scanner.nextInt();
-         while (num < 0 || num > 4) {
-            System.out.println("Out of range, try again");
-            num = scanner.nextInt();
-         }
-      }
-      else if (choice == 0){
-         System.out.println("--- Exiting Program. ---\n");
-         return; 
-      }
-      
-      // trigger function call depending on user input 
-      if(choice == 1)
-         System.out.println("\n" + input +" Fahrenheit -> " + instance.accuracy(instance.convertF2C(input),num) + " Celsius" );
-      else if (choice == 2)
-         System.out.println("\n" + input +" Celsius -> " + instance.accuracy(instance.convertC2F(input),num) + " Fahrenheit" );
-      else if (choice == 3)
-         System.out.println("\n" + input +" Inches -> " + instance.accuracy(instance.convertIn2Cm(input),num) + " Centimeters" );
-      else if (choice == 4)
-         System.out.println("\n" + input +" Centimeters -> " + instance.accuracy(instance.convertCm2In(input),num) + " Inches" );
-      else if (choice == 5)
-         System.out.println("\n" + input +" Feet -> " + instance.accuracy(instance.convertF2M(input),num) + " Meters" );
-      else if (choice == 6)
-         System.out.println("\n" + input +" Meters -> " + instance.accuracy(instance.convertM2F(input),num) + " Feet" );
-      else if (choice == 7)
-         System.out.println("\n" + input +" Miles -> " + instance.accuracy(instance.convertM2K(input),num) + " Kilometers" );
-      else if (choice == 8)
-         System.out.println("\n" + input +" Kilometers -> " + instance.accuracy(instance.convertK2M(input),num) + " Miles" );
-      else if (choice == 9)
-         System.out.println("\n" + input +" Gallons -> " + instance.accuracy(instance.convertG2L(input),num) + " Liters" );
-      else if (choice == 10)
-         System.out.println("\n" + input +" Liters -> " + instance.accuracy(instance.convertL2G(input),num) + " Gallons" );
-      else if (choice == 11)
-         System.out.println("\n" + input +" Ounces -> " + instance.accuracy(instance.convertOz2G(input),num) + " Grams" );
-      else if (choice == 12)
-         System.out.println("\n" + input +" Grams -> " + instance.accuracy(instance.convertG2Oz(input),num) + " Ounces" );
-      else if (choice == 13)
-         System.out.println("\n" + input +" Pounds -> " + instance.accuracy(instance.convertLb2K(input),num) + " Kilograms" );
-      else if (choice == 14)
-         System.out.println("\n" + input +" Kilograms -> " + instance.accuracy(instance.convertK2Lb(input),num) + " Pounds" );
-      else if (choice == 15)
-         System.out.println("\n" + input +" Hours -> " + instance.accuracy(instance.convertH2S(input),num) + " Seconds" );
-      else if (choice == 16)
-         System.out.println("\n" + input +" Seconds -> " + instance.accuracy(instance.convertS2H(input),num) + " Hours" );
-      else { 
-         System.out.println("\nInvalid input. Please try again.\n");
-         break; 
-      } 
+   // User input their choice by entering a value
+   int choice = scanner.nextInt();
+   float input = 0;
+   int num = 0;
+   while (choice < 0 || choice > 16) {
+      System.out.println("\nInvalid input. Please try again.");
+      choice = scanner.nextInt();
    }
-   scanner.close();
+   return choice;   
+}
+
+public float valueToConvert(){
+   Scanner scanner = new Scanner(System.in);
+   System.out.println("Enter in the value to convert");
+   float res = scanner.nextFloat();
+   return res;
+}
+
+public String printOut(float input, int num, int choice){
+   conversion instance = new conversion(); 
+   // trigger function call depending on user input 
+   if(choice == 1)
+      return("\n" + input +" Fahrenheit -> " + instance.accuracy(instance.convertF2C(input),num) + " Celsius" );
+   else if (choice == 2)
+      return ("\n" + input +" Celsius -> " + instance.accuracy(instance.convertC2F(input),num) + " Fahrenheit" );
+   else if (choice == 3)
+      return ("\n" + input +" Inches -> " + instance.accuracy(instance.convertIn2Cm(input),num) + " Centimeters" );
+   else if (choice == 4)
+      return ("\n" + input +" Centimeters -> " + instance.accuracy(instance.convertCm2In(input),num) + " Inches" );
+   else if (choice == 5)
+      return ("\n" + input +" Feet -> " + instance.accuracy(instance.convertF2M(input),num) + " Meters" );
+   else if (choice == 6)
+      return ("\n" + input +" Meters -> " + instance.accuracy(instance.convertM2F(input),num) + " Feet" );
+   else if (choice == 7)
+      return ("\n" + input +" Miles -> " + instance.accuracy(instance.convertM2K(input),num) + " Kilometers" );
+   else if (choice == 8)
+      return ("\n" + input +" Kilometers -> " + instance.accuracy(instance.convertK2M(input),num) + " Miles" );
+   else if (choice == 9)
+      return ("\n" + input +" Gallons -> " + instance.accuracy(instance.convertG2L(input),num) + " Liters" );
+   else if (choice == 10)
+      return ("\n" + input +" Liters -> " + instance.accuracy(instance.convertL2G(input),num) + " Gallons" );
+   else if (choice == 11)
+      return ("\n" + input +" Ounces -> " + instance.accuracy(instance.convertOz2G(input),num) + " Grams" );
+   else if (choice == 12)
+      return ("\n" + input +" Grams -> " + instance.accuracy(instance.convertG2Oz(input),num) + " Ounces" );
+   else if (choice == 13)
+      return ("\n" + input +" Pounds -> " + instance.accuracy(instance.convertLb2K(input),num) + " Kilograms" );
+   else if (choice == 14)
+      return ("\n" + input +" Kilograms -> " + instance.accuracy(instance.convertK2Lb(input),num) + " Pounds" );
+   else if (choice == 15)
+      return ("\n" + input +" Hours -> " + instance.accuracy(instance.convertH2S(input),num) + " Seconds" );
+   else if (choice == 16)
+      return ("\n" + input +" Seconds -> " + instance.accuracy(instance.convertS2H(input),num) + " Hours" );
+   else if (choice == 0)
+         return ("--- Exiting Program. ---\n");
+   else 
+      return ("\nInvalid input. Please try again.\n");
+}
+
+public int getDecimal(){
+   Scanner scanner = new Scanner(System.in);
+   System.out.println("Enter in digits after the decimal point (0-4)");
+   int num = scanner.nextInt();
+   while (num < 0 || num > 4) {
+      System.out.println("Out of range, try again");
+      num = scanner.nextInt();
+   }
+   return num;
+}
+
+public static void main(String[] args){
+   conversion instance = new conversion(); 
+   while(true){
+      //print menu - void
+      instance.menu();
+      //choice - return int
+      int choice = instance.getChoice();
+      if(choice == 0){
+         System.out.println("--- Exiting Program. ---\n");
+         break;
+      }
+      //value to convert - return int
+      float value = instance.valueToConvert();
+      //decimal place - retunr int
+      int num = instance.getDecimal();
+      //print out converted value
+      System.out.println(instance.printOut(value, num, choice));
+   }
 }
 }

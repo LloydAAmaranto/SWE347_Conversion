@@ -7,11 +7,31 @@ public class ConversionTest {
 
   conversion convert = new conversion();
   
-  @Before 
-  public void setUp(){
-    conversion convert = new conversion();  
+  // test what happens when a user enters in a non-number for the value to convert
+  @Test(expected = IllegalArgumentException.class)
+  public void testAccuracyInput() {
+    String invalid = "invalid"; 
+    int accuracy = 2; 
+    float result = convert.accuracy(Float.parseFloat(invalid), accuracy);
   }
 
+  // test what happens when a user enters in a number outside the range of 0 to 4 for the accuracy  
+  @Test(expected = IllegalArgumentException.class)
+  public void testAccuracyInput2(){
+    float val = 123.45f; 
+    int accuracy = 5; 
+    float invalid = convert.accuracy(val, accuracy);
+  }
+
+  // test what happens when a user enters in a non-number for the accuracy value 0-4 
+  @Test(expected = IllegalArgumentException.class)
+  public void testAccuracyInput3(){
+    float val = 123.45f; 
+    String invalid = "invalid"; 
+    float result = convert.accuracy(val, Integer.parseInt(invalid));
+  }
+
+  // test the actual output of the accuracy method 
   @Test
   public void testAccuracy(){
     float val = 123.45678f; 
@@ -21,6 +41,8 @@ public class ConversionTest {
     float delta = 0.0001f; 
     assertEquals(expected, concat, delta); 
   }
+
+  // test the actual output of each of the conversion methods 
 
   @Test
   public void testF2C(){
@@ -157,10 +179,4 @@ public class ConversionTest {
     float delta = 0.01f; 
     assertEquals(expected, hours, delta);
   }
-  
-  @After
-  public void tearDown(){
-    convert = null; 
-  }
-
 }
