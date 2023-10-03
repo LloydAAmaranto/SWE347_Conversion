@@ -411,6 +411,26 @@ public float convertS2H(float seconds){
    return seconds / 3600.0f; 
 }
 
+// 17) miles per hour to kilometers per hour
+public float convertMPH2KPH(float mph){
+   return mph * 1.6093f;
+}
+
+// 18) kilometers per hour to miles per hour
+public float convertKPH2MPH(float kph){
+   return kph / 1.6093f;
+}
+
+// 19) kelvin to celsius
+public float convertK2C(float kelvin){
+   return kelvin - 273.15f;
+}
+// 20) celsius to kevlin
+public float convertC2K(float celsius){
+   return celsius + 273.15f;
+}
+
+
 public float accuracy(float val, int accuracy){
    //NOTE: this method will only work if the amount of decimal places in 'val' is greater than 'accuracy'
    if(accuracy > 4 || accuracy < 0){
@@ -442,6 +462,10 @@ public void menu(){
    System.out.println("Enter 14 to convert kilograms to pounds");
    System.out.println("Enter 15 to convert hours to seconds");
    System.out.println("Enter 16 to convert seconds to hours");
+   System.out.println("Enter 17 to convert miles per hour to kilometers per hour");
+   System.out.println("Enter 18 to convert kilometers per hour to miles per hour");
+   System.out.println("Enter 19 to convert kelvin to celsius");
+   System.out.println("Enter 20 to convert celsius to kelvin");
    System.out.println("Enter 0 to exit");
    System.out.println("----------------------------------------------------------\n");
 }
@@ -451,9 +475,7 @@ public int getChoice(){
    Scanner scanner = new Scanner(System.in); 
    // User input their choice by entering a value
    int choice = scanner.nextInt();
-   float input = 0;
-   int num = 0;
-   while (choice < 0 || choice > 16) {
+   while (choice < 0 || choice > 20) {
       System.out.println("\nInvalid input. Please try again.");
       choice = scanner.nextInt();
    }
@@ -502,6 +524,14 @@ public String printOut(float input, int num, int choice){
       return ("\n" + input +" Hours -> " + instance.accuracy(instance.convertH2S(input),num) + " Seconds" );
    else if (choice == 16)
       return ("\n" + input +" Seconds -> " + instance.accuracy(instance.convertS2H(input),num) + " Hours" );
+   else if (choice == 17)
+      return ("\n" + input +" Miles per hour -> " + instance.accuracy(instance.convertMPH2KPH(input),num) + " Kilometers per hour" );
+   else if (choice == 18)
+      return ("\n" + input +" Kilometers per hour -> " + instance.accuracy(instance.convertKPH2MPH(input),num) + " Miles per hour" );
+   else if (choice == 19)
+      return ("\n" + input +" Kelvin -> " + instance.accuracy(instance.convertK2C(input),num) + " Celsius" );
+   else if (choice == 20)
+      return ("\n" + input +" Celsius -> " + instance.accuracy(instance.convertC2K(input),num) + " Kelvin" );
    else if (choice == 0)
          return ("--- Exiting Program. ---\n");
    else 

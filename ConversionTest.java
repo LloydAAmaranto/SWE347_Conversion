@@ -179,4 +179,41 @@ public class ConversionTest {
     float delta = 0.01f; 
     assertEquals(expected, hours, delta);
   }
+
+  @Test
+  public void testMPH2KPH(){
+    float mph = 123.45f;
+    float kph = convert.convertMPH2KPH(mph); 
+    float expected = 198.6735f; 
+    float delta = 0.01f; 
+    assertEquals(expected, kph, delta); 
+  }
+
+  @Test
+  public void testKPH2MPH(){
+    float kph = 123.45f;
+    float mph = convert.convertKPH2MPH(kph); 
+    float expected = 76.70827f; 
+    float delta = 0.01f; 
+    assertEquals(expected, mph, delta); 
+  }
+
+  @Test
+  public void testK2C(){
+    float kelvin = 123.45f;
+    float celsius = convert.convertK2C(kelvin); 
+    float expected = -149.7f; 
+    float delta = 0.01f; 
+    assertEquals(expected, celsius, delta); 
+  }
+
+  @Test
+  public void testC2K(){
+    float celsius = 123.45f;
+    float kelvin = convert.convertC2K(celsius); 
+    float expected = 396.6f; 
+    float delta = 0.01f; 
+    assertEquals(expected, kelvin, delta); 
+  }
+
 }
