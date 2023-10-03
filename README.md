@@ -4,4 +4,3 @@
 3) Complie conversion.java by typing "javac conversion.java"
 4) Run the conversion.java file by typing "java conversion"
 5) Run the conversionTest.java file in an IDE (Eclipse/VScode) and run from there
-6) 
